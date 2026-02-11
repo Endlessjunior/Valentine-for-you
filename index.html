@@ -1,75 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💗</title>
+
+<style>
+body{
+margin:0;
+font-family:sans-serif;
+background:linear-gradient(135deg,#ffd6ec,#ffe9f6);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+
+.page{display:none;}
+.page.active{display:block;}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+text-align:center;
+max-width:400px;
+}
+
+.btn{
+padding:10px 20px;
+border:none;
+border-radius:10px;
+margin:10px;
+cursor:pointer;
+font-size:16px;
+background:#ff77b7;
+color:white;
+}
+
+.btn:hover{transform:scale(1.05);}
+.hidden{display:none;}
+.gift{
+padding:15px;
+font-size:18px;
+border-radius:15px;
+border:none;
+background:#ffb3d9;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg">
+</audio>
+
 <div id="app">
-  <div class="bg"></div>
-  <div class="particles" aria-hidden="true"></div>
 
-  <audio id="bgMusic" loop>
-    <!-- 🎵 เปลี่ยนเพลงตรง src -->
-    <source src="https://files.catbox.moe/eu4l5x.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- PAGES -->
-  <section class="page active">
-    <div class="card">
-      <h1 id="typeText"></h1>
-      <p class="dialog">น้องมีเรื่องอยากเล่าให้คุณฟัง… แบบค่อยๆ ทีละหน้า 💗</p>
-      <div class="actions">
-        <button class="btn next">เริ่มเรื่องของเรา</button>
-        <button class="btn ghost" id="musicToggle">🎵 เปิดเพลง</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="page">
-    <div class="card">
-      <p class="dialog">
-        จำครั้งแรกที่เราคุยกันได้ไหม… ตอนนั้นน้องยังไม่รู้เลยว่า
-        คุณจะกลายเป็นคนที่น้องรอคุยทุกวัน 😳
-      </p>
-      <div class="actions"><button class="btn next">ต่อไป</button></div>
-    </div>
-  </section>
-
-  <section class="page">
-    <div class="card">
-      <p class="dialog">
-        ช่วงหลังๆ น้องเริ่มรู้สึกว่า… วันไหนไม่ได้คุยกับคุณ
-        มันเหมือนมีอะไรหายไป และทุกข้อความของคุณทำให้น้องยิ้มเสมอ 💬
-      </p>
-      <div class="actions"><button class="btn next">ต่ออีกนิด</button></div>
-    </div>
-  </section>
-
-  <section class="page">
-    <div class="card">
-      <button class="gift" id="giftBox">🎁 กดเพื่อเปิดความรู้สึกของน้อง</button>
-      <p class="dialog hidden" id="giftText">
-        จริงๆ แล้ว… น้องชอบคุณมากเลยนะ และอยากดูแลคุณให้ดีกว่านี้ 💗
-      </p>
-      <div class="actions">
-        <button class="btn next hidden" id="giftNext">ไปต่อ</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="page">
-    <div class="card">
-      <p class="dialog">
-        น้องไม่รู้ว่าคุณจะรู้สึกเหมือนกันไหม
-        แต่น้องรู้ว่า… อยากมีคุณอยู่ในทุกวันต่อจากนี้ 🤍
-      </p>
-      <div class="actions"><button class="btn next">หน้าสุดท้ายแล้วนะ…</button></div>
-    </div>
-  </section>
-
-  <section class="page">
-    <div class="card">
-      <h2>คุณจะเป็นแฟนน้องไหม 💘</h2>
-      <div class="actions">
-        <button class="btn primary" id="yesBtn">YES 💗</button>
-        <button class="btn dark" id="noBtn">NO 😈</button>
-      </div>
-    </div>
-  </section>
-
-  <canvas id="fx"></canvas>
+<section class="page active">
+<div class="card">
+<h2 id="typeText"></h2>
+<p>น้องมีเรื่องอยากเล่าให้คุณฟัง 💗</p>
+<button class="btn next">เริ่ม</button>
+<button class="btn" id="musicToggle">🎵 เปิดเพลง</button>
 </div>
+</section>
+
+<section class="page">
+<div class="card">
+<p>จำวันที่เราคุยกันครั้งแรกได้ไหม 😳</p>
+<button class="btn next">ต่อ</button>
+</div>
+</section>
+
+<section class="page">
+<div class="card">
+<button class="gift" id="giftBox">🎁 เปิดความรู้สึก</button>
+<p id="giftText" class="hidden">จริงๆ น้องชอบคุณมากนะ 💗</p>
+<button class="btn next hidden" id="giftNext">ไปต่อ</button>
+</div>
+</section>
+
+<section class="page">
+<div class="card">
+<h2>คุณจะเป็นแฟนน้องไหม 💘</h2>
+<button class="btn" id="yesBtn">YES 💗</button>
+<button class="btn" id="noBtn">NO 😈</button>
+</div>
+</section>
+
+</div>
+
+<script>
+const pages=document.querySelectorAll(".page");
+const nextBtns=document.querySelectorAll(".next");
+let current=0;
+
+nextBtns.forEach(btn=>{
+btn.onclick=()=>{
+pages[current].classList.remove("active");
+current++;
+if(current<pages.length){
+pages[current].classList.add("active");
+}
+};
+});
+
+const giftBox=document.getElementById("giftBox");
+if(giftBox){
+giftBox.onclick=()=>{
+document.getElementById("giftText").classList.remove("hidden");
+document.getElementById("giftNext").classList.remove("hidden");
+giftBox.style.display="none";
+};
+}
+
+const music=document.getElementById("bgMusic");
+const musicToggle=document.getElementById("musicToggle");
+musicToggle.onclick=()=>{
+music.play();
+};
+
+document.getElementById("yesBtn").onclick=()=>{
+alert("เย้ 💗 รักนะ!");
+};
+
+document.getElementById("noBtn").onclick=()=>{
+alert("ตอบใหม่ 😈");
+};
+
+const text="มีบางอย่างอยากบอกคุณ…";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typeText").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,60);
+}
+}
+type();
+</script>
+
+</body>
+</html>
