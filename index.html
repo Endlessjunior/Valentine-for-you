@@ -1,0 +1,75 @@
+<div id="app">
+  <div class="bg"></div>
+  <div class="particles" aria-hidden="true"></div>
+
+  <audio id="bgMusic" loop>
+    <!-- 🎵 เปลี่ยนเพลงตรง src -->
+    <source src="https://files.catbox.moe/eu4l5x.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- PAGES -->
+  <section class="page active">
+    <div class="card">
+      <h1 id="typeText"></h1>
+      <p class="dialog">น้องมีเรื่องอยากเล่าให้คุณฟัง… แบบค่อยๆ ทีละหน้า 💗</p>
+      <div class="actions">
+        <button class="btn next">เริ่มเรื่องของเรา</button>
+        <button class="btn ghost" id="musicToggle">🎵 เปิดเพลง</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <p class="dialog">
+        จำครั้งแรกที่เราคุยกันได้ไหม… ตอนนั้นน้องยังไม่รู้เลยว่า
+        คุณจะกลายเป็นคนที่น้องรอคุยทุกวัน 😳
+      </p>
+      <div class="actions"><button class="btn next">ต่อไป</button></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <p class="dialog">
+        ช่วงหลังๆ น้องเริ่มรู้สึกว่า… วันไหนไม่ได้คุยกับคุณ
+        มันเหมือนมีอะไรหายไป และทุกข้อความของคุณทำให้น้องยิ้มเสมอ 💬
+      </p>
+      <div class="actions"><button class="btn next">ต่ออีกนิด</button></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <button class="gift" id="giftBox">🎁 กดเพื่อเปิดความรู้สึกของน้อง</button>
+      <p class="dialog hidden" id="giftText">
+        จริงๆ แล้ว… น้องชอบคุณมากเลยนะ และอยากดูแลคุณให้ดีกว่านี้ 💗
+      </p>
+      <div class="actions">
+        <button class="btn next hidden" id="giftNext">ไปต่อ</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <p class="dialog">
+        น้องไม่รู้ว่าคุณจะรู้สึกเหมือนกันไหม
+        แต่น้องรู้ว่า… อยากมีคุณอยู่ในทุกวันต่อจากนี้ 🤍
+      </p>
+      <div class="actions"><button class="btn next">หน้าสุดท้ายแล้วนะ…</button></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <h2>คุณจะเป็นแฟนน้องไหม 💘</h2>
+      <div class="actions">
+        <button class="btn primary" id="yesBtn">YES 💗</button>
+        <button class="btn dark" id="noBtn">NO 😈</button>
+      </div>
+    </div>
+  </section>
+
+  <canvas id="fx"></canvas>
+</div>

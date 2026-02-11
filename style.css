@@ -1,0 +1,88 @@
+:root{
+  --pink:#ff4d8d;
+  --pink2:#ff0066;
+  --glass:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui, -apple-system, "Prompt", sans-serif;
+  background:#000;
+  color:#fff;
+  overflow:hidden;
+}
+
+/* BG */
+.bg{
+  position:fixed; inset:0;
+  background:
+    radial-gradient(1200px 600px at 70% -10%, #ff9ecf55, transparent),
+    radial-gradient(900px 500px at -10% 110%, #ff6aa655, transparent),
+    #000;
+  z-index:-2;
+}
+.particles{
+  position:fixed; inset:0; pointer-events:none; z-index:-1;
+}
+.particles span{
+  position:absolute; width:6px; height:6px; border-radius:50%;
+  background:#ff9ecf; opacity:.7;
+  animation:float linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(100vh)}
+  to{transform:translateY(-10vh)}
+}
+
+/* PAGE */
+.page{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none;
+  transform:translateY(16px) scale(.98);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.page.active{
+  opacity:1; pointer-events:auto;
+  transform:translateY(0) scale(1);
+}
+
+/* CARD */
+.card{
+  width:min(92vw,420px);
+  background:var(--glass);
+  backdrop-filter:blur(18px);
+  border-radius:20px;
+  padding:28px 24px;
+  box-shadow:0 20px 60px #0006;
+  text-align:center;
+}
+.dialog{line-height:1.7; font-size:18px; margin:12px 0 18px}
+.actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
+
+/* BUTTONS */
+.btn{
+  border:none; border-radius:12px; padding:12px 16px;
+  cursor:pointer; font-size:15px;
+  background:#ffffff22; color:#fff;
+}
+.btn.primary{background:var(--pink2)}
+.btn.dark{background:#222}
+.btn.ghost{background:#ffffff10}
+.btn.next{background:var(--pink)}
+.btn:active{transform:scale(.98)}
+
+.gift{
+  width:100%; padding:16px; border-radius:14px;
+  border:1px dashed #fff6; background:#ffffff10; color:#fff; cursor:pointer;
+}
+
+.hidden{display:none}
+
+/* CANVAS FX */
+#fx{position:fixed; inset:0; pointer-events:none}
+
+@media (max-width:480px){
+  .dialog{font-size:17px}
+}
